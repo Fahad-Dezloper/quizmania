@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import mongoose from 'mongoose';
-import { generateQuizQuestions } from '@/lib/gemini';
 import Question from '@/models/Question';
+import { generateQuizQuestions } from '@/lib/question-selector';
 
 // Connect to MongoDB
 async function connectDB() {
@@ -14,7 +14,7 @@ export async function POST(req: NextRequest) {
     try {
         await connectDB();
 
-        // Generate questions using Gemini API
+        // Generate questions from static question bank
         const response = await generateQuizQuestions();
 
         // Save questions to database for caching

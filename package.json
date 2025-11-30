@@ -14,8 +14,6 @@
     "@farcaster/miniapp-node": "^0.1.6",
     "@farcaster/miniapp-sdk": "^0.2.1",
     "@farcaster/miniapp-wagmi-connector": "^1.1.0",
-    "@google/generative-ai": "^0.24.1",
-    "@openrouter/sdk": "^0.1.27",
     "@reown/appkit": "^1.8.14",
     "@reown/appkit-adapter-wagmi": "^1.8.14",
     "@tanstack/react-query": "^5.80.5",

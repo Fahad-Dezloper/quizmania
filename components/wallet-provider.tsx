@@ -1,0 +1,75 @@
+"use client"
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { createAppKit } from '@reown/appkit/react'
+import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
+import {  base } from '@reown/appkit/networks'
+import { WagmiProvider } from 'wagmi'
+import { farcasterMiniApp as miniAppConnector } from '@farcaster/miniapp-wagmi-connector'
+
+// Get Reown/WalletConnect Project ID from environment or use a default
+const projectId = process.env.NEXT_PUBLIC_REOWN_PROJECT_ID || 'demo-project-id'
+
+// Set up Wagmi Adapter with Farcaster connector
+const wagmiAdapter = new WagmiAdapter({
+  networks: [base],
+  projectId,
+  ssr: true,
+  connectors: [
+    miniAppConnector(), // Add Farcaster Mini App connector
+  ],
+})
+
+// Create AppKit instance
+createAppKit({
+  adapters: [wagmiAdapter],
+  networks: [base],
+  projectId,
+  metadata: {
+    name: 'Quizmania',
+    description: 'Quizmania - Play quizzes and earn rewards',
+    url: 'https://quizmania.vercel.app/',
+    icons: ['https://quizmania.vercel.app/images/icon.png']
+  },
+  features: {
+    analytics: true, // Disable analytics to prevent extra renders
+    email: false, // Disable email login
+    socials: false, // Disable social logins
+    onramp: false, // Disable on-ramp
+  },
+  themeMode: 'dark',
+  themeVariables: {
+    '--w3m-accent': '#3b99fc',
+    '--w3m-border-radius-master': '16px',
+  },
+  allWallets: 'SHOW', // Show all available wallets
+})
+
+// Export the wagmi config
+// This includes:
+// - Farcaster Mini App connector (for in-app usage)
+// - All wallets supported by Reown AppKit (MetaMask, Coinbase, etc.)
+export const config = wagmiAdapter.wagmiConfig
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: true,
+      refetchOnMount: true,
+      refetchOnReconnect: true,
+      staleTime: 0,
+    },
+  },
+})
+
+export function WalletProvider({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return (
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+    </WagmiProvider>
+  )
+}

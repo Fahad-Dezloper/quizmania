@@ -31,6 +31,16 @@ export default function Home() {
 
   return (
     <SafeAreaContainer insets={context?.client.safeAreaInsets}>
+      <div className='h-[10vh] bg-white w-full rounded-xl overflow-hidden'>
+      <video
+        src="/BaseLogo.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="w-full h-full object-cover"
+      />
+      </div>
       <QuizApp />
     </SafeAreaContainer>
   )

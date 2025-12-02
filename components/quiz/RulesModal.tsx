@@ -10,57 +10,60 @@ export function RulesModal({ isOpen, onClose, onStart }: RulesModalProps) {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 animate-fadeIn">
-            <div className="bg-white rounded-2xl max-w-md w-full p-8 shadow-2xl animate-slideUp">
-                <h2 className="text-3xl font-bold text-gray-900 mb-6">🎯 Quiz Rules</h2>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 px-3">
+            <div className="w-full max-w-md rounded-2xl bg-white p-4 shadow-2xl sm:p-6">
+                <div className="mb-4 text-center">
+                    <h2 className="text-xl font-bold text-gray-900 sm:text-2xl">Quiz Rules</h2>
+                    <p className="mt-1 text-sm text-gray-600">
+                        Short, timed quiz with speed bonuses and a global leaderboard.
+                    </p>
+                </div>
 
-                <div className="space-y-4 mb-8">
-                    <div className="flex items-start gap-3">
-                        <span className="text-2xl">📝</span>
-                        <div>
-                            <h3 className="font-bold text-gray-900">10 Questions</h3>
-                            <p className="text-gray-600 text-sm">Test your knowledge about Base blockchain ecosystem</p>
+                <div className="mb-5 grid grid-cols-2 gap-2">
+                    <div className="rounded-lg bg-gray-50 px-3 py-2">
+                        <p className="text-sm font-semibold text-gray-900">10 questions</p>
+                        <p className="text-xs text-gray-600">
+                            All about the Base blockchain ecosystem.
+                        </p>
+                    </div>
+
+                    <div className="rounded-lg bg-gray-50 px-3 py-2">
+                        <p className="text-sm font-semibold text-gray-900">10 seconds per question</p>
+                        <p className="text-xs text-gray-600">
+                            When time is up, the question is counted as unanswered.
+                        </p>
+                    </div>
+
+                    <div className="rounded-lg bg-gray-50 px-3 py-2">
+                        <p className="text-sm font-semibold text-gray-900">Scoring</p>
+                        <p className="text-xs text-gray-600">
+                            10 points per correct answer + speed bonus:
+                        </p>
+                        <div className="mt-1 flex flex-col gap-y-0.5 text-xs text-gray-600">
+                            <span>+5 pts (0–3s)</span>
+                            <span>+3 pts (3–6s)</span>
+                            <span>+1 pt (6–10s)</span>
                         </div>
                     </div>
 
-                    <div className="flex items-start gap-3">
-                        <span className="text-2xl">⏱️</span>
-                        <div>
-                            <h3 className="font-bold text-gray-900">10 Seconds Per Question</h3>
-                            <p className="text-gray-600 text-sm">Answer quickly to maximize your score!</p>
-                        </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                        <span className="text-2xl">⚡</span>
-                        <div>
-                            <h3 className="font-bold text-gray-900">Speed Bonus</h3>
-                            <p className="text-gray-600 text-sm">
-                                Base: 10 points per correct answer<br />
-                                Bonus: +5 pts (0-3s), +3 pts (3-6s), +1 pt (6-10s)
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="flex items-start gap-3">
-                        <span className="text-2xl">🏆</span>
-                        <div>
-                            <h3 className="font-bold text-gray-900">Leaderboard</h3>
-                            <p className="text-gray-600 text-sm">Compete with others and climb the ranks!</p>
-                        </div>
+                    <div className="rounded-lg bg-gray-50 px-3 py-2">
+                        <p className="text-sm font-semibold text-gray-900">Leaderboard</p>
+                        <p className="text-xs text-gray-600">
+                            Your best scores and times are ranked against other players.
+                        </p>
                     </div>
                 </div>
 
-                <div className="flex gap-3">
+                <div className="flex flex-col gap-2 sm:flex-row">
                     <button
                         onClick={onClose}
-                        className="flex-1 px-6 py-3 border-2 border-gray-300 rounded-lg font-bold text-gray-700 hover:bg-gray-50 transition-colors"
+                        className="w-full rounded-lg border border-gray-300 px-4 py-2 text-base font-semibold text-gray-700 sm:flex-1 sm:text-sm"
                     >
                         Cancel
                     </button>
                     <button
                         onClick={onStart}
-                        className="flex-1 px-6 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-bold hover:from-purple-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl"
+                        className="w-full rounded-lg bg-[#0000FF] px-4 py-2 text-base font-semibold text-white shadow-lg sm:flex-1 sm:text-sm"
                     >
                         Start Quiz! 🚀
                     </button>

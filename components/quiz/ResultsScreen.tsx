@@ -40,10 +40,10 @@ export function ResultsScreen({
     };
 
     return (
-        <div className="w-full max-w-2xl mx-auto space-y-6 animate-fadeIn">
+        <div className="w-full max-w-2xl mx-auto space-y-6">
             {/* Confetti effect for high scores */}
             {accuracy >= 80 && (
-                <div className="text-center text-6xl animate-bounce">
+                <div className="text-center text-6xl">
                     🎊 🎉 🎊
                 </div>
             )}
@@ -104,13 +104,13 @@ export function ResultsScreen({
                 <div className="space-y-3">
                     <button
                         onClick={onPlayAgain}
-                        className="w-full px-6 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-bold text-lg hover:from-purple-600 hover:to-blue-600 transition-all shadow-lg hover:shadow-xl"
+                        className="w-full px-6 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-lg font-bold text-lg shadow-lg"
                     >
                         Play Again 🎮
                     </button>
                     <button
                         onClick={onViewLeaderboard}
-                        className="w-full px-6 py-4 border-2 border-purple-500 text-purple-600 rounded-lg font-bold text-lg hover:bg-purple-50 transition-colors"
+                        className="w-full px-6 py-4 border-2 border-purple-500 text-purple-600 rounded-lg font-bold text-lg"
                     >
                         View Leaderboard 🏆
                     </button>

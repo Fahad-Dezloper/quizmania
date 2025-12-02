@@ -8,7 +8,7 @@ interface ScoreDisplayProps {
 
 export function ScoreDisplay({ currentScore, questionsAnswered, totalQuestions }: ScoreDisplayProps) {
     return (
-        <div className="bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl p-6 shadow-lg text-white">
+        <div className=" bg-[#0000FF] rounded-xl py-3 px-6 shadow-lg text-white">
             <div className="flex justify-between items-center">
                 <div>
                     <p className="text-sm opacity-90">Current Score</p>

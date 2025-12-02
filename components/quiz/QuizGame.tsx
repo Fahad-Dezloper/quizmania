@@ -105,7 +105,7 @@ export function QuizGame({ questions, sessionId, userId, username, pfpUrl, onCom
     if (isSubmitting) {
         return (
             <div className="flex flex-col items-center justify-center min-h-screen p-4">
-                <div className="animate-spin rounded-full h-16 w-16 border-b-4 border-purple-500 mb-4"></div>
+                <div className="rounded-full h-16 w-16 border-4 border-purple-500 mb-4"></div>
                 <p className="text-xl font-bold text-gray-700">Calculating your score...</p>
             </div>
         );
@@ -128,8 +128,8 @@ export function QuizGame({ questions, sessionId, userId, username, pfpUrl, onCom
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 p-4 py-8">
-            <div className="max-w-4xl mx-auto space-y-6">
+        <div className="h-fit w-full">
+            <div className="">
                 {/* Score display */}
                 <ScoreDisplay
                     currentScore={currentScore}

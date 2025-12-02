@@ -38,16 +38,16 @@ export function Timer({ duration, onTimeUp, isActive }: TimerProps) {
     };
 
     return (
-        <div className="w-full space-y-2">
+        <div className="w-full space-y-2 mt-4">
             <div className="flex justify-between items-center">
-                <span className="text-sm font-medium text-gray-600">Time Left</span>
-                <span className={`text-2xl font-bold ${percentage <= 30 ? 'text-red-500 animate-pulse' : 'text-gray-800'}`}>
+                <span className="text-sm font-medium text-white">Time Left</span>
+                <span className={`text-2xl font-bold ${percentage <= 30 ? 'text-red-500' : 'text-white'}`}>
                     {timeLeft}s
                 </span>
             </div>
             <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
                 <div
-                    className={`h-full transition-all duration-1000 ease-linear ${getColor()}`}
+                    className={`h-full ${getColor()}`}
                     style={{ width: `${percentage}%` }}
                 />
             </div>

@@ -22,7 +22,8 @@ export interface IQuizSession extends Document {
 
 const QuizAnswerSchema = new Schema<IQuizAnswer>({
     questionId: { type: String, required: true },
-    selectedAnswer: { type: Number, required: true, min: 0, max: 3 },
+    // -1 indicates no answer was selected (e.g. time ran out)
+    selectedAnswer: { type: Number, required: true, min: -1, max: 3 },
     timeSpent: { type: Number, required: true },
     isCorrect: { type: Boolean, required: true }
 }, { _id: false });

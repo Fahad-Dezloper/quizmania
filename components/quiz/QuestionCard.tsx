@@ -23,13 +23,13 @@ export function QuestionCard({
 }: QuestionCardProps) {
 
     const getButtonClass = (index: number) => {
-        const baseClass = "w-full p-4 text-left rounded-lg border-2 transition-all duration-200 font-medium";
+        const baseClass = "w-full p-4 text-left rounded-lg border-2 font-medium";
 
         if (!showResult) {
             if (selectedAnswer === index) {
                 return `${baseClass} border-blue-500 bg-blue-50 text-blue-900`;
             }
-            return `${baseClass} border-gray-300 hover:border-blue-400 hover:bg-blue-50 text-gray-900`;
+            return `${baseClass} border-gray-300 bg-white text-gray-900`;
         }
 
         // Show results
@@ -43,10 +43,10 @@ export function QuestionCard({
     };
 
     return (
-        <div className="w-full max-w-2xl mx-auto space-y-6 animate-fadeIn">
+        <div className="w-full max-w-2xl mx-auto space-y-6">
             {/* Progress indicator */}
-            <div className="flex items-center justify-between">
-                <span className="text-sm font-medium text-gray-600">
+            <div className="flex flex-col items-start gap-4 justify-between mt-4">
+                <span className="text-sm font-medium text-white">
                     Question {questionNumber} of {totalQuestions}
                 </span>
                 <div className="flex gap-1">

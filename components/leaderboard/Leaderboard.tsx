@@ -73,20 +73,19 @@ export function Leaderboard({ currentUserId, onClose }: LeaderboardProps) {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 p-4 py-8">
+        <div className="min-h-screen bg-gradient-to-br from-purple-50 rounded-2xl to-blue-50 p-4 py-8">
             <div className="max-w-4xl mx-auto">
                 {/* Header */}
                 <div className="bg-white rounded-2xl p-6 shadow-xl mb-6">
                     <div className="flex items-center justify-between">
-                        <h1 className="text-3xl font-bold text-gray-900">🏆 Leaderboard</h1>
+                        <h1 className="text-3xl font-bold text-gray-900">Leaderboard</h1>
                         <button
                             onClick={onClose}
                             className="px-4 py-2 text-gray-600 hover:text-gray-900 font-medium"
                         >
-                            ✕ Close
+                            ✕
                         </button>
                     </div>
-                    <p className="text-gray-600 mt-2">Top players in BasedQuiz</p>
                 </div>
 
                 {/* Leaderboard list */}
